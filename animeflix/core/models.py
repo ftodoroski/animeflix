@@ -62,7 +62,7 @@ class Profile(models.Model):
 
 
 class Genre(models.Model):
-    name = models.CharField(max_length=250)
+    name = models.CharField(max_length=250, unique=True)
 
     def __str__(self):
         return  self.name
@@ -118,29 +118,45 @@ class Program(models.Model):
     thumbnail = models.ImageField(upload_to='multi-media-animeflix')
     background = models.ImageField(upload_to='multi-media-animeflix')
     clip = models.FileField(upload_to='multi-media-animeflix')
-    thumbclick = models.FileField(upload_to='multi-media-animeflix')
+    thumbclip = models.FileField(upload_to='multi-media-animeflix')
     genres = models.ManyToManyField(Genre)
+    seasons = models.IntegerField(default=0)
 
     def __str__(self):
         return self.title
 
 
 class Watchlist(models.Model):
-    profile = models.OneToOneField(
+    profile = models.ForeignKey(
         Profile, 
         on_delete=models.CASCADE
     )
-    program = models.ForeignKey(Program, on_delete=models.CASCADE)
+    program = models.ForeignKey(
+        Program, 
+        on_delete=models.CASCADE
+    )
 
 
 class Like(models.Model):
-    profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
-    program = models.ForeignKey(Program, on_delete=models.CASCADE)
-    
+    profile = models.ForeignKey(
+        Profile, 
+        on_delete=models.CASCADE
+    )
+    program = models.ForeignKey(
+        Program, 
+        on_delete=models.CASCADE
+    )
 
+    
 class Dislike(models.Model):
-    profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
-    program = models.ForeignKey(Program, on_delete=models.CASCADE)
+    profile = models.ForeignKey(
+        Profile, 
+        on_delete=models.CASCADE
+    )
+    program = models.ForeignKey(
+        Program, 
+        on_delete=models.CASCADE
+    )
 
 
 
