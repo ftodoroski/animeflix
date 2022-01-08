@@ -109,7 +109,7 @@ class Program(models.Model):
     yr = models.IntegerField()
     description = models.TextField()
     rating = models.CharField(max_length=10, choices=RATINGS, default=NOT_RATED)
-    runtime = models.IntegerField()
+    runtime = models.IntegerField(default=0)
     director = models.CharField(max_length=250)
     score = models.FloatField()
     program_type = models.CharField(max_length=10, choices=PROGRAM_TYPE, default=MOVIE)
