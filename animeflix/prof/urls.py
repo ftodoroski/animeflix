@@ -1,8 +1,8 @@
 from django.urls import path
 
-from program import views
+from prof import views
 
-app_name = 'program'
+app_name = 'prof'
 
 urlpatterns = [
     # path('', views.ProgramAPIView.as_view())

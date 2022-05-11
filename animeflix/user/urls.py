@@ -6,6 +6,8 @@ app_name = 'user'
 
 urlpatterns = [
     path('create/', views.CreateUserView.as_view(), name='create'),
-    path('token-auth/', views.CreateTokenView.as_view(), name='token_auth'),
-    path('me/', views.ManageUserView.as_view(), name='me')
+    path('login/', views.LoginUserView.as_view(), name='login'),
+    path('logout/', views.LogoutUserView.as_view() , name='logout'),
+    path('delete-account/<int:pk>', views.DeleteUserView.as_view(), name='delete-account'),
+    path('update/<int:pk>', views.UpdateUserView.as_view() , name='update'),
 ]
