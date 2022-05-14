@@ -5,5 +5,6 @@ from program import views
 app_name = 'program'
 
 urlpatterns = [
-    # path('', views.ProgramAPIView.as_view())
+    path('', views.ListGenreProgramView.as_view(), name='genre-based-program-list'),
+    path('<int:pk>/', views.DetailProgramViews.as_view(), name='program-detail')
 ]

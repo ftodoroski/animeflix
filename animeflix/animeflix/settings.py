@@ -39,8 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # internal modules
-    'core', 
+    'core',
+    'genre',
     'program', 
+    'watchlist',
     'user',
     'prof',
     

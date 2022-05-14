@@ -8,8 +8,8 @@ from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
 from rest_framework.generics import (
     CreateAPIView,
-    DestroyAPIView, 
     UpdateAPIView,
+    DestroyAPIView, 
 )
 from rest_framework.settings import api_settings
 from rest_framework.authentication import (
@@ -24,6 +24,7 @@ class CreateUserView(CreateAPIView):
     queryset = get_user_model().objects.all()
     serializer_class = UserSerializer
     authentication_classes = [SessionAuthentication]
+    permission_classes = []
 
 
 class LoginUserView(ObtainAuthToken):

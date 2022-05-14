@@ -56,6 +56,7 @@ class Profile(models.Model):
         settings.AUTH_USER_MODEL, 
         on_delete=models.CASCADE
     )
+    profile_num = models.IntegerField(default=1, null=False, blank=False)
 
     def __str__(self):
         return self.name
@@ -135,6 +136,7 @@ class Watchlist(models.Model):
         Program, 
         on_delete=models.CASCADE
     )
+    created_at = models.DateTimeField(auto_now=True)
 
 
 class Like(models.Model):
