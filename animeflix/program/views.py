@@ -12,6 +12,6 @@ class DetailProgramViews(RetrieveAPIView):
     serializer_class = ProgramSerializer
 
 
-class ListGenreProgramView(ListAPIView):
+class ListProgramView(ListAPIView):
     queryset = Program.objects.all()
     serializer_class = ProgramSerializer
