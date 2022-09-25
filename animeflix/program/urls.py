@@ -6,5 +6,6 @@ app_name = 'program'
 
 urlpatterns = [
     path('', views.ListProgramView.as_view(), name='program-list'),
-    path('<int:pk>', views.DetailProgramViews.as_view(), name='program-detail')
+    path('<int:pk>', views.DetailProgramViews.as_view(), name='program-detail'), 
+    path('search', views.ListFilterProgramView.as_view(), name='program-filtered'),
 ]
