@@ -29,7 +29,7 @@ class ListProfileSerializer(ModelSerializer, ShowcaseID):
         fields = '__all__'
 
 
-class DetailProfileWatchlistSerializer(ModelSerializer):
+class ProfileWatchlistSerializer(ModelSerializer):
     class Meta:
         model = Watchlist
         fields = ['id', 'program_id', 'created_at']
@@ -52,5 +52,5 @@ class DetailProfileSerializer(ModelSerializer, ShowcaseID,):
 
     def get_watchlist(self, obj):
         qs = Watchlist.objects.filter(profile_id=obj.id)
-        serializer = DetailProfileWatchlistSerializer(qs, many=True)
+        serializer = ProfileWatchlistSerializer(qs, many=True)
         return serializer.data
