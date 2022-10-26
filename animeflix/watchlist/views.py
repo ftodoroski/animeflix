@@ -36,3 +36,4 @@ class ProfileWatchlistView(ListAPIView, CreateAPIView, DestroyAPIView):
 
         return Response(data=serializer.data, status=status.HTTP_201_CREATED)
         
+
