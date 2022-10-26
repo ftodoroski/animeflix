@@ -35,3 +35,4 @@ class ProfileWatchlistView(ListAPIView, CreateAPIView, DestroyAPIView):
         serializer = self.get_serializer(watchlist)
 
         return Response(data=serializer.data, status=status.HTTP_201_CREATED)
+        
