@@ -3,6 +3,7 @@ from rest_framework.generics import (
     ListAPIView,
 )
 from rest_framework.response import Response
+from rest_framework import status
 
 from core.models import Program
 from .serializers import ProgramSerializer
@@ -73,6 +74,9 @@ class ListFilterProgramView(ListAPIView):
         programs, searchlist = self.develop_searchlist_and_recommendation(search_query)
 
         serialized_data = self.get_serializer(programs, many=True).data
+
+        if len(programs) == 0:
+            return Response(status=status.HTTP_404_NOT_FOUND)
 
         response = {
             'programs': serialized_data,
